@@ -1,6 +1,4 @@
-from select import select
-
-
+import view
 class Position():
         def __init__(self, x=0, y=0):
             self.x=x
@@ -248,18 +246,14 @@ class minimax:
                     for j in range(5):
                         if (current_board[i][j]==1): self.point+=1
                         if (current_board[i][j]==-1): self.point-=1
+# get available move for player: get_valid_moves(board.current_board, board.previous_board, player)
+# perform the move: act_move(board.current_board, move, player)
 def main():
-    player=-1
-    board()
-    for i in range(5): print(board.current_board[i])
-    print()
     while True:
-        move=board.select_move(player,4)
-        if move==None: break
-        previous_board=board.copy_board(board.current_board)
-        board.act_move(board.current_board,move,player)
-        board.previous_board=board.copy_board(previous_board)
-        for i in range(5): print(board.current_board[i])
-        print()
-        player=-player
+        #welcome page
+        #output of the welcome page is hard-level and start first or second
+        hard_level, start = view.welcome_page()
+        board()
+        while True:
+            pass
 main()
